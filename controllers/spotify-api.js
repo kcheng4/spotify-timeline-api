@@ -60,7 +60,7 @@ const getPlayListById = (playlistId) => {
                 data.getPlaylist(playlistId)
                     .then((data) => {
                         if (data){
-                            console.log(data.body);
+                            //console.log(data.body);
                             resolve(data.body);
                         }
                         else
@@ -77,7 +77,7 @@ const getSongArtists = (playlistId) => {
         getPlayListById(playlistId).then((data)=>{
             //console.log(data.tracks.items.length);
             for(let x=0;x<data.tracks.items.length;x++){
-                console.log(data.tracks.items[x].track.artists[0].id);
+                //console.log(data.tracks.items[x].track.artists[0].id);
                 if(data.tracks.items[x].track.artists[0].id!==null){
                     if(artistList[data.tracks.items[x].track.artists[0].id])
                         artistList[data.tracks.items[x].track.artists[0].id]=artistList[data.tracks.items[x].track.artists[0].id]+1;
@@ -86,7 +86,7 @@ const getSongArtists = (playlistId) => {
                     //artistList.push(data.tracks.items[x].track.artists[0].id);
                 }
             }
-            console.log(artistList);
+            //console.log(artistList);
             resolve(artistList);
             //resolve(artistList.filter(el=>el!=null));
         //console.log(data.tracks);
@@ -262,7 +262,7 @@ const getPlaylistList = async (username) => {
 //     }).catch(err=>console.log(err));
 // });
 
-getTopGenresFromPlaylistID('5ymXLfn3aLYnR3RtDxnenU').then(data=>console.log(data));
+//getTopGenresFromPlaylistID('5ymXLfn3aLYnR3RtDxnenU').then(data=>console.log(data));
 module.exports = {
     getPlaylistList,
     getTopGenresFromPlaylistID
