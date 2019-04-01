@@ -6,7 +6,7 @@ const endpoint = require('./controllers/spotify-api');
 
 const app = express();
 const port = process.env.PORT || 3000;
-console.log(port);
+console.log(process.env.NODE_ENV);
 
 app.use(cors());
 app.use(bodyParser.json());
