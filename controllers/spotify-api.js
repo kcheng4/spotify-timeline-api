@@ -1,8 +1,9 @@
 const spotifyWebAPI = require('spotify-web-api-node');
 const _ = require('lodash');
 
-if(process.env.process.env.NODE_ENV!='production')
+if(process.env.NODE_ENV!=='production'){
     const { CLIENT_ID, CLIENT_SECRET } = require('./config/clientConfig');
+}
 
 const setAPICredentials = () => {
     const swa = new spotifyWebAPI({
