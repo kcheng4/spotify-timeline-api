@@ -11,9 +11,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/user/:user',(req, res) => {
-    //console.log(req.params.user);
+
     const string = req.params.user.replace("%20"," ");
-    //console.log(string);
+   
     endpoint.getPlaylistList(string).then(data=>{
         data.sort((a,b)=>{
             return a.playlist_start<b.playlist_start ? -1 : a.playlist_start>b.playlist_start ? 1 : 0;
@@ -25,7 +25,7 @@ app.get('/user/:user',(req, res) => {
 });
 
 app.get('/playlist/:playlistId',(req, res) => {
-    //console.log(req.params.playlistId);
+    
     endpoint.getTopGenresFromPlaylistID(req.params.playlistId).then(data=>{
         res.send(data);
     })
